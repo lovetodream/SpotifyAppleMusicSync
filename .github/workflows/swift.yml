@@ -17,7 +17,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Prepare Build
-      run: brew bundle
+      run: |
+        brew install swiftformat
+        brew install sourcedocs
     - name: Build
       run: swift build -v
     - name: Lint
