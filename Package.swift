@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "spotify-apple-music-sync",
+    name: "SpotifyAppleMusicSync",
     platforms: [
        .macOS(.v10_15)
     ],
