@@ -34,10 +34,8 @@ jobs:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     - name: Build Documentation
       run: sourcedocs generate --spm-module App
-    - name: Verify Valid Swift Package
-      run: curl -s https://raw.githubusercontent.com/daveverwer/SwiftPMLibrary/master/script.sh | bash -s -- mine
-    - name: CocoaPods Action
-      run: pod lib lint
+    # - name: CocoaPods Action
+    #   run: pod lib lint
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
