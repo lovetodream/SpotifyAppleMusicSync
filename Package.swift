@@ -12,6 +12,7 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-mongo-driver.git", from: "1.0.0"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
+        .package(url: "https://github.com/shibapm/PackageConfig.git", from: "0.13.0"),
         // Dev dependencies
         .package(url: "https://github.com/shibapm/Komondor.git", from: "1.0.0"),
     ],
