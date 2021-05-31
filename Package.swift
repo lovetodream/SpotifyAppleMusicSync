@@ -12,6 +12,8 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         .package(url: "https://github.com/vapor/fluent-mongo-driver.git", from: "1.0.0"),
         .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
+        // Dev dependencies
+        .package(url: "https://github.com/shibapm/Komondor.git", from: "1.0.0"),
     ],
     targets: [
         .target(
@@ -36,3 +38,14 @@ let package = Package(
         ])
     ]
 )
+
+#if canImport(PackageConfig)
+    import PackageConfig
+
+    let config = PackageConfiguration([
+        "komondor": [
+            "pre-commit": ["swift test", "swiftformat --lint . && siftlint", "git add ."],
+            "pre-push": "swift test"
+        ],
+    ])
+#endif
