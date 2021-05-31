@@ -12,7 +12,7 @@ struct TodoController: RouteCollection {
     }
 
     func index(req: Request) throws -> EventLoopFuture<[Todo]> {
-        return Todo.query(on: req.db).all()
+        Todo.query(on: req.db).all()
     }
 
     func create(req: Request) throws -> EventLoopFuture<Todo> {
@@ -21,7 +21,7 @@ struct TodoController: RouteCollection {
     }
 
     func delete(req: Request) throws -> EventLoopFuture<HTTPStatus> {
-        return Todo.find(req.parameters.get("todoID"), on: req.db)
+        Todo.find(req.parameters.get("todoID"), on: req.db)
             .unwrap(or: Abort(.notFound))
             .flatMap { $0.delete(on: req.db) }
             .transform(to: .ok)
